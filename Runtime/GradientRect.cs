@@ -8,6 +8,7 @@ namespace Gilzoide.GradientRect
     [RequireComponent(typeof(CanvasRenderer))]
     public class GradientRect : MaskableGraphic
     {
+        [Serializable]
         public enum GradientDirection
         {
             LeftToRight,

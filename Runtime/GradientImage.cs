@@ -11,7 +11,6 @@ namespace Gilzoide.GradientRect
 
         [SerializeField] private Image.Type _type = Image.Type.Simple;
         [SerializeField] private bool _fillCenter = true;
-
         [SerializeField] private float _pixelsPerUnitMultiplier = 1f;
 
         private static readonly Vector2[] s_VertScratch = new Vector2[4];
@@ -22,7 +21,7 @@ namespace Gilzoide.GradientRect
             get => _pixelsPerUnitMultiplier;
             set
             {
-                _pixelsPerUnitMultiplier = value;
+                _pixelsPerUnitMultiplier = Mathf.Max(0.01f, value);
                 SetVerticesDirty();
             }
         }
@@ -279,13 +278,5 @@ namespace Gilzoide.GradientRect
             vertexHelper.AddTriangle(startIndex, startIndex + 1, startIndex + 2);
             vertexHelper.AddTriangle(startIndex + 2, startIndex + 3, startIndex);
         }
-
-#if UNITY_EDITOR
-        protected override void OnValidate()
-        {
-            base.OnValidate();
-            _pixelsPerUnitMultiplier = Mathf.Max(0.01f, _pixelsPerUnitMultiplier);
-        }
-#endif
     }
 }

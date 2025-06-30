@@ -16,7 +16,6 @@ namespace Gilzoide.GradientRect
             TopToBottom,
         }
 
-        [Header("Gradient")]
         [SerializeField] protected Gradient _gradient;
         [SerializeField] protected GradientDirection _direction;
 
@@ -79,7 +78,7 @@ namespace Gilzoide.GradientRect
                             c1 = c2 = color1 * tint;
                             c3 = c4 = color2 * tint;
                             break;
-                        
+
                         case GradientDirection.RightToLeft:
                             v1 = new Vector2(1 - time2, 0);
                             v2 = new Vector2(1 - time2, 1);
@@ -88,7 +87,7 @@ namespace Gilzoide.GradientRect
                             c1 = c2 = color2 * tint;
                             c3 = c4 = color1 * tint;
                             break;
-                        
+
                         case GradientDirection.BottomToTop:
                             v1 = new Vector2(0, time1);
                             v2 = new Vector2(0, time2);
@@ -106,7 +105,7 @@ namespace Gilzoide.GradientRect
                             c1 = c4 = color2 * tint;
                             c2 = c3 = color1 * tint;
                             break;
-                            
+
                         default: throw new ArgumentOutOfRangeException(nameof(_direction));
                     }
 
